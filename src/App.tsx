@@ -7,7 +7,7 @@ import CodeBlock from "./components/CodeBlock"; // Theme
 import { useGenerateContext } from "./contexts/GenerateContext";
 
 export default function App() {
-  const { generated } = useGenerateContext();
+  const { generated, highlighter } = useGenerateContext();
 
   return (
     <div className="App">
@@ -25,7 +25,7 @@ export default function App() {
           }}
         >
           {generated ? (
-            <CodeBlock language="language-python" code={generated} />
+            <CodeBlock language={highlighter} code={generated} />
           ) : null}
         </Grid>
       </Grid>

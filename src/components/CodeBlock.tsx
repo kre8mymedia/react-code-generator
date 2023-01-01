@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useGenerateContext } from "../contexts/GenerateContext";
 import Prism from "prismjs";
 import "prismjs/themes/prism-okaidia.css";
 
@@ -16,10 +17,13 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-typescript";
 
+
 export default function CodeBlock(props: any) {
+  const { generated } = useGenerateContext();
+
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [generated]);
 
   return (
     <pre>

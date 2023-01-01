@@ -6,9 +6,11 @@ import {
   Button
 } from "@mui/material";
 import { useState, useEffect } from "react";
+import { languages } from "../constants/code";
 
 import { useAppContext } from "../contexts/AppContext";
 import { useGenerateContext } from "../contexts/GenerateContext";
+import { getHighlighter } from "../utils/highlight";
 import SimpleSelect from "./SimpleSelect";
 
 export const defaultPayloadObj = {
@@ -26,14 +28,16 @@ export default function CodeGen() {
   const [payload, setPayload] = useState(defaultPayloadObj);
   const [item, setItem] = useState('');
   const { title, loading } = useAppContext();
-  const { generateCode } = useGenerateContext();
+  const { generateCode, setHighlighter } = useGenerateContext();
 
   useEffect(() => {
     function assignLangauge() {
+      const highlighter = getHighlighter(languages, item);
+      setHighlighter(highlighter);
       setPayload({
         ...payload,
         language: item
-      })
+      });
     }
     assignLangauge();
   }, [item])
@@ -46,81 +50,11 @@ export default function CodeGen() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        {/* <TextField
-          id="language"
-          label="Languauge"
-          variant="outlined"
-          onChange={(e: any) =>
-            setPayload({
-              ...payload,
-              language: e.target.value
-            })
-          }
-          value={payload.language}
-          fullWidth
-        /> */}
         <SimpleSelect 
           label="Language"
           value={item}
           setItem={setItem}
-          items={[
-            {
-              key: 'python',
-              name: 'Python'
-            },
-            {
-              key: 'javascript',
-              name: 'Javascript'
-            },
-            {
-              key: 'typescript',
-              name: 'Typescript'
-            },
-            {
-              key: 'go',
-              name: 'Golang'
-            },
-            {
-              key: 'rust',
-              name: 'Rust'
-            },
-            {
-              key: 'c',
-              name: 'C'
-            },
-            {
-              key: 'cpp',
-              name: 'C++'
-            },
-            {
-              key: 'bash',
-              name: 'Bash'
-            },
-            {
-              key: 'html',
-              name: 'HTML'
-            },
-            {
-              key: 'css',
-              name: 'CSS'
-            },
-            {
-              key: 'react',
-              name: 'React'
-            },
-            {
-              key: 'vue',
-              name: 'Vue'
-            },
-            {
-              key: 'angular',
-              name: 'Angular'
-            },
-            {
-              key: 'kotlin',
-              name: 'Kotlin'
-            },
-          ]}
+          items={languages}
         />
       </Grid>
       {/* <Grid item xs={12}>
