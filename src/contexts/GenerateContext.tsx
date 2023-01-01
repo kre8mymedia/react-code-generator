@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
+import { BOT_URL } from "../config/app";
 import { useAppContext } from "./AppContext";
 
 export const GenerateContext = React.createContext({});
@@ -8,7 +9,7 @@ interface IGenerateProvider {
   children: React.ReactNode;
 }
 
-const url = "https://bots.skrumify.com/openai/generator/function";
+const url = `${BOT_URL}/openai/generator/function`;
 
 export default function GenerateProvider({ children }: IGenerateProvider) {
   const { setLoading } = useAppContext();

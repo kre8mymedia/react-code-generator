@@ -14,11 +14,11 @@ export const languages = [
       name: 'Typescript',
       highlighter: 'language-typescript'
     },
-    // {
-    //     key: 'php',
-    //     name: 'PHP',
-    //     highlighter: 'language-php'
-    // },
+    {
+        key: 'php',
+        name: 'PHP',
+        highlighter: 'language-javascript'
+    },
     {
       key: 'go',
       name: 'Golang',
@@ -29,11 +29,11 @@ export const languages = [
       name: 'Rust',
       highlighter: 'language-rust'
     },
-    // {
-    //     key: 'csharp',
-    //     name: 'C#',
-    //     highlighter: 'language-csharp'
-    // },
+    {
+        key: 'csharp',
+        name: 'C#',
+        highlighter: 'language-csharp'
+    },
     {
       key: 'c',
       name: 'C',
@@ -44,11 +44,11 @@ export const languages = [
       name: 'C++',
       highlighter: 'language-cpp'
     },
-    // {
-    //     key: 'sql',
-    //     name: 'SQL',
-    //     highlighter: 'language-sql'
-    // },
+    {
+        key: 'sql',
+        name: 'SQL',
+        highlighter: 'language-sql'
+    },
     {
       key: 'bash',
       name: 'Bash',
