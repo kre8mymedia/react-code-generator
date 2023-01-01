@@ -64,26 +64,26 @@ export const languages = [
       name: 'CSS',
       highlighter: 'language-css'
     },
-    // {
-    //   key: 'react',
-    //   name: 'React',
-    //   highlighter: ''
-    // },
-    // {
-    //   key: 'vue',
-    //   name: 'Vue',
-    //   highlighter: ''
-    // },
-    // {
-    //   key: 'angular',
-    //   name: 'Angular',
-    //   highlighter: ''
-    // },
-    // {
-    //     key: 'scala',
-    //     name: 'Scala',
-    //     highlighter: 'language-scala'
-    // },
+    {
+      key: 'react',
+      name: 'React',
+      highlighter: 'language-javascript'
+    },
+    {
+      key: 'vue',
+      name: 'Vue',
+      highlighter: 'language-javascript'
+    },
+    {
+      key: 'angular',
+      name: 'Angular',
+      highlighter: 'language-javascript'
+    },
+    {
+        key: 'scala',
+        name: 'Scala',
+        highlighter: 'language-scala'
+    },
     // {
     //   key: 'kotlin',
     //   name: 'Kotlin',
