@@ -48,7 +48,7 @@ export default function CodeGen() {
           fullWidth
         />
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <TextField
           id="response-format"
           label="Response Format"
@@ -62,7 +62,7 @@ export default function CodeGen() {
           value={payload.responseFormat}
           fullWidth
         />
-      </Grid>
+      </Grid> */}
       <Grid item xs={12}>
         <TextField
           id="fucntion-args"
