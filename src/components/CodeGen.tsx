@@ -5,10 +5,13 @@ import {
   CircularProgress,
   Button
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { languages } from "../constants/code";
 
 import { useAppContext } from "../contexts/AppContext";
 import { useGenerateContext } from "../contexts/GenerateContext";
+import { getHighlighter } from "../utils/highlight";
+import SimpleSelect from "./SimpleSelect";
 
 export const defaultPayloadObj = {
   language: "",
@@ -23,8 +26,21 @@ export const defaultPayloadObj = {
 
 export default function CodeGen() {
   const [payload, setPayload] = useState(defaultPayloadObj);
+  const [item, setItem] = useState('');
   const { title, loading } = useAppContext();
-  const { generateCode } = useGenerateContext();
+  const { generateCode, setHighlighter } = useGenerateContext();
+
+  useEffect(() => {
+    function assignLangauge() {
+      const highlighter = getHighlighter(languages, item);
+      setHighlighter(highlighter);
+      setPayload({
+        ...payload,
+        language: item
+      });
+    }
+    assignLangauge();
+  }, [item])
 
   return (
     <Grid container spacing={2}>
@@ -34,21 +50,14 @@ export default function CodeGen() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <TextField
-          id="language"
-          label="Languauge"
-          variant="outlined"
-          onChange={(e: any) =>
-            setPayload({
-              ...payload,
-              language: e.target.value
-            })
-          }
-          value={payload.language}
-          fullWidth
+        <SimpleSelect 
+          label="Language"
+          value={item}
+          setItem={setItem}
+          items={languages}
         />
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <TextField
           id="response-format"
           label="Response Format"
@@ -62,7 +71,7 @@ export default function CodeGen() {
           value={payload.responseFormat}
           fullWidth
         />
-      </Grid>
+      </Grid> */}
       <Grid item xs={12}>
         <TextField
           id="fucntion-args"
@@ -76,6 +85,7 @@ export default function CodeGen() {
           }
           value={payload.args}
           fullWidth
+          helperText="argOne, argTwo, argThree"
         />
       </Grid>
       <Grid item xs={12}>
@@ -93,6 +103,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Create a function that sums an array, the function should take an array as params."
         />
       </Grid>
       <Grid item xs={12}>
@@ -110,6 +121,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Return the total sum of the numbers in the array."
         />
       </Grid>
       <Grid item xs={12}>
@@ -127,6 +139,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Simple function with a test case that will test the function, do not use unittest library."
         />
       </Grid>
       <Grid item>
