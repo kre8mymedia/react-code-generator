@@ -5,7 +5,7 @@ import {
   CircularProgress,
   Button
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useAppContext } from "../contexts/AppContext";
 import { useGenerateContext } from "../contexts/GenerateContext";
@@ -27,6 +27,16 @@ export default function CodeGen() {
   const [item, setItem] = useState('');
   const { title, loading } = useAppContext();
   const { generateCode } = useGenerateContext();
+
+  useEffect(() => {
+    function assignLangauge() {
+      setPayload({
+        ...payload,
+        language: item
+      })
+    }
+    assignLangauge();
+  }, [item])
 
   return (
     <Grid container spacing={2}>
