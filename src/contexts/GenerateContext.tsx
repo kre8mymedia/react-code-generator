@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useAppContext } from "./AppContext";
 
-export const GenerateContext = React.createContext({} as any);
+export const GenerateContext = React.createContext({});
 
 interface IGenerateProvider {
   children: React.ReactNode;

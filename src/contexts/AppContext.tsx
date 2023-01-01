@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-export const AppContext = React.createContext({} as any);
+export const AppContext = React.createContext({});
 
 interface IAppProvider {
   children: React.ReactNode;

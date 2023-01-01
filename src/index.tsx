@@ -7,14 +7,16 @@ import AppProvider from "./contexts/AppContext";
 import GenerateProvider from "./contexts/GenerateContext";
 
 const rootElement = document.getElementById("root");
-const root = createRoot(rootElement!);
+if (rootElement) {
+  const root = createRoot(rootElement);
 
-root.render(
-  <StrictMode>
-    <AppProvider>
-      <GenerateProvider>
-        <App />
-      </GenerateProvider>
-    </AppProvider>
-  </StrictMode>
-);
+  root.render(
+    <StrictMode>
+      <AppProvider>
+        <GenerateProvider>
+          <App />
+        </GenerateProvider>
+      </AppProvider>
+    </StrictMode>
+  );
+}
