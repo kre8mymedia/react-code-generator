@@ -48,6 +48,9 @@ export default function CodeGen() {
         <Typography variant="h5" style={{ textAlign: "center" }}>
           {title}
         </Typography>
+        <Typography variant="subtitle1" style={{ textAlign: "center" }}>
+          created by: <a href="https://gitlab.com/kre8mymedia" rel="noreferrer" target="_blank">Ryan Eggleston</a>
+        </Typography>
       </Grid>
       <Grid item xs={12}>
         <SimpleSelect 
