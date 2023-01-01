@@ -9,6 +9,7 @@ import { useState } from "react";
 
 import { useAppContext } from "../contexts/AppContext";
 import { useGenerateContext } from "../contexts/GenerateContext";
+import SimpleSelect from "./SimpleSelect";
 
 export const defaultPayloadObj = {
   language: "",
@@ -23,6 +24,7 @@ export const defaultPayloadObj = {
 
 export default function CodeGen() {
   const [payload, setPayload] = useState(defaultPayloadObj);
+  const [item, setItem] = useState('');
   const { title, loading } = useAppContext();
   const { generateCode } = useGenerateContext();
 
@@ -34,7 +36,7 @@ export default function CodeGen() {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <TextField
+        {/* <TextField
           id="language"
           label="Languauge"
           variant="outlined"
@@ -46,6 +48,69 @@ export default function CodeGen() {
           }
           value={payload.language}
           fullWidth
+        /> */}
+        <SimpleSelect 
+          label="Language"
+          value={item}
+          setItem={setItem}
+          items={[
+            {
+              key: 'python',
+              name: 'Python'
+            },
+            {
+              key: 'javascript',
+              name: 'Javascript'
+            },
+            {
+              key: 'typescript',
+              name: 'Typescript'
+            },
+            {
+              key: 'go',
+              name: 'Golang'
+            },
+            {
+              key: 'rust',
+              name: 'Rust'
+            },
+            {
+              key: 'c',
+              name: 'C'
+            },
+            {
+              key: 'cpp',
+              name: 'C++'
+            },
+            {
+              key: 'bash',
+              name: 'Bash'
+            },
+            {
+              key: 'html',
+              name: 'HTML'
+            },
+            {
+              key: 'css',
+              name: 'CSS'
+            },
+            {
+              key: 'react',
+              name: 'React'
+            },
+            {
+              key: 'vue',
+              name: 'Vue'
+            },
+            {
+              key: 'angular',
+              name: 'Angular'
+            },
+            {
+              key: 'kotlin',
+              name: 'Kotlin'
+            },
+          ]}
         />
       </Grid>
       {/* <Grid item xs={12}>
@@ -76,6 +141,7 @@ export default function CodeGen() {
           }
           value={payload.args}
           fullWidth
+          helperText="argOne, argTwo, argThree"
         />
       </Grid>
       <Grid item xs={12}>
@@ -93,6 +159,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Create a function that sums an array, the function should take an array as params."
         />
       </Grid>
       <Grid item xs={12}>
@@ -110,6 +177,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Return the total sum of the numbers in the array."
         />
       </Grid>
       <Grid item xs={12}>
@@ -127,6 +195,7 @@ export default function CodeGen() {
           fullWidth
           multiline
           rows={4}
+          helperText="Simple function with a test case that will test the function, do not use unittest library."
         />
       </Grid>
       <Grid item>
