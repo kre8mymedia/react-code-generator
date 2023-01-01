@@ -15,6 +15,11 @@ export const languages = [
       highlighter: 'language-typescript'
     },
     {
+        key: 'php',
+        name: 'PHP',
+        highlighter: 'language-php'
+    },
+    {
       key: 'go',
       name: 'Golang',
       highlighter: 'language-go'
@@ -25,6 +30,11 @@ export const languages = [
       highlighter: 'language-rust'
     },
     {
+        key: 'csharp',
+        name: 'C#',
+        highlighter: 'language-csharp'
+    },
+    {
       key: 'c',
       name: 'C',
       highlighter: 'language-c'
@@ -33,6 +43,11 @@ export const languages = [
       key: 'cpp',
       name: 'C++',
       highlighter: 'language-cpp'
+    },
+    {
+        key: 'sql',
+        name: 'SQL',
+        highlighter: 'language-sql'
     },
     {
       key: 'bash',
@@ -64,6 +79,11 @@ export const languages = [
     //   name: 'Angular',
     //   highlighter: ''
     // },
+    {
+        key: 'scala',
+        name: 'Scala',
+        highlighter: 'language-scala'
+    },
     {
       key: 'kotlin',
       name: 'Kotlin',
