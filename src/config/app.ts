@@ -1,3 +1,3 @@
 export const IS_REMOTE = false;
 
-export const BOT_URL = IS_REMOTE ? 'http://localhost:8000' : 'https://bots.skrumify.com';
+export const BOT_URL = IS_REMOTE ? 'http://localhost:8000' : 'https://dev-api.promptengineers.ai';
