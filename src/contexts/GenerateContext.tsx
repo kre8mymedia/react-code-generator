@@ -9,7 +9,7 @@ interface IGenerateProvider {
   children: React.ReactNode;
 }
 
-const url = `${BOT_URL}/openai/generator/function`;
+const url = `${BOT_URL}/api/v1/generator/function`;
 
 export default function GenerateProvider({ children }: IGenerateProvider) {
   const { setLoading } = useAppContext();
