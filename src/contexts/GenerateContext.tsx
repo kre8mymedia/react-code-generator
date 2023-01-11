@@ -24,9 +24,9 @@ export default function GenerateProvider({ children }: IGenerateProvider) {
       axios.defaults.headers.post["Content-Type"] = "application/json";
       // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
       const res = await axios.post(url, payload);
-      const code = res.data;
-      // console.log(code);
-      setGenerated(code.string);
+      const data = res.data;
+      // console.log(data);
+      setGenerated(data.code);
       setLoading(false);
     } catch (e) {
       console.error(e);
