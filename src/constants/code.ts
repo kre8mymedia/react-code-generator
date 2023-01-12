@@ -30,6 +30,11 @@ export const languages = [
       highlighter: 'language-rust'
     },
     {
+      key: 'java',
+      name: 'Java',
+      highlighter: 'language-java'
+    },
+    {
         key: 'csharp',
         name: 'C#',
         highlighter: 'language-csharp'
@@ -45,39 +50,9 @@ export const languages = [
       highlighter: 'language-cpp'
     },
     {
-        key: 'sql',
-        name: 'SQL',
-        highlighter: 'language-sql'
-    },
-    {
       key: 'bash',
       name: 'Bash',
       highlighter: 'language-bash'
-    },
-    {
-      key: 'html',
-      name: 'HTML',
-      highlighter: 'language-html'
-    },
-    {
-      key: 'css',
-      name: 'CSS',
-      highlighter: 'language-css'
-    },
-    {
-      key: 'react',
-      name: 'React',
-      highlighter: 'language-javascript'
-    },
-    {
-      key: 'vue',
-      name: 'Vue',
-      highlighter: 'language-javascript'
-    },
-    {
-      key: 'angular',
-      name: 'Angular',
-      highlighter: 'language-javascript'
     },
     {
         key: 'scala',
