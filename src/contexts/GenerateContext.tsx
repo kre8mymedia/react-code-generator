@@ -9,7 +9,7 @@ interface IGenerateProvider {
   children: React.ReactNode;
 }
 
-const url = `${BOT_URL}/openai/generator/function`;
+const url = `${BOT_URL}/api/v1/generator/function`;
 
 export default function GenerateProvider({ children }: IGenerateProvider) {
   const { setLoading } = useAppContext();
@@ -22,6 +22,7 @@ export default function GenerateProvider({ children }: IGenerateProvider) {
     setLoading(true);
     try {
       axios.defaults.headers.post["Content-Type"] = "application/json";
+      axios.defaults.headers.post["Authorization"] = `Bearer ${localStorage.getItem('access_token')}`;
       // axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
       const res = await axios.post(url, payload);
       const code = res.data;
